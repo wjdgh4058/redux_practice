@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const age = useSelector((state) => state);
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>나이: {age}</p>
+      <button onClick={() => dispatch({ type: "increase" })}>더하기</button>
+      <button onClick={() => dispatch({ type: "decrease" })}>빼기</button>
     </div>
   );
 }
